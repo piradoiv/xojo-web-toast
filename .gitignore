@@ -1,0 +1,5 @@
+*.debug
+*.xojo_uistate
+**/node_modules
+.DS_Store
+.idea
