@@ -95,7 +95,7 @@ Begin WebPage WebPage1
       Enabled         =   True
       FieldType       =   0
       Height          =   70
-      Hint            =   "42 seconds ago"
+      Hint            =   ""
       Index           =   -2147483648
       Indicator       =   0
       Left            =   20
@@ -110,7 +110,7 @@ Begin WebPage WebPage1
       ReadOnly        =   False
       Scope           =   2
       TabIndex        =   6
-      Text            =   ""
+      Text            =   "42 seconds ago"
       TextAlignment   =   0
       Tooltip         =   ""
       Top             =   98
