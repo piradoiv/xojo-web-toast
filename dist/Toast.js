@@ -14,15 +14,20 @@ var RC;
                 commands.forEach((command) => this.parseCommand(command));
             }
         }
-        toast(title, timeAgo, body, autoHide = true, hideDelay = 500) {
+        toast(title, timeAgo, body, autoHide = true, hideDelay = 500, indicator = 0) {
             var _a, _b, _c;
             this.createWrapperIfNeeded();
             const element = document.createElement('div');
             (_a = this.mToastWrapper) === null || _a === void 0 ? void 0 : _a.appendChild(element);
             const toastId = 'bs-toast-' + Date.now();
+            const indicators = ['light', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light'];
+            if (XojoWeb.session.isDarkModeEnabled) {
+                indicators[0] = 'dark';
+            }
+            const indicatorString = `text-bg-${indicators[indicator]}`;
             element.outerHTML =
                 `
-                <div id="${toastId}" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+                <div id="${toastId}" class="toast ${indicatorString}" role="alert" aria-live="assertive" aria-atomic="true"
                     data-bs-animation="true" data-bs-autohide="${autoHide}" data-bs-delay="${hideDelay}">
                     <div class="toast-header">
                         <strong class="me-auto">${title}</strong>
@@ -68,7 +73,8 @@ var RC;
                         autoHide = command.auto_hide;
                     }
                     const hideDelay = command.hide_delay || 2500;
-                    this.toast(title, timeAgo, body, autoHide, hideDelay);
+                    const indicator = command.indicator || 0;
+                    this.toast(title, timeAgo, body, autoHide, hideDelay, indicator);
                     break;
                 case 'hide-at':
                     command.index && this.hideAt(command.index);

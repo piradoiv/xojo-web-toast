@@ -5,7 +5,7 @@ Begin WebPage WebPage1
    ControlCount    =   0
    ControlID       =   ""
    Enabled         =   False
-   Height          =   556
+   Height          =   700
    ImplicitInstance=   True
    Index           =   -2147483648
    Indicator       =   0
@@ -29,7 +29,6 @@ Begin WebPage WebPage1
    _ImplicitInstance=   False
    _mDesignHeight  =   0
    _mDesignWidth   =   0
-   _mName          =   ""
    _mPanelIndex    =   -1
    Begin WebButton ShowToastButton
       AllowAutoDisable=   False
@@ -52,7 +51,7 @@ Begin WebPage WebPage1
       Scope           =   2
       TabIndex        =   4
       Tooltip         =   ""
-      Top             =   474
+      Top             =   558
       Visible         =   True
       Width           =   189
       _mPanelIndex    =   -1
@@ -168,7 +167,7 @@ Begin WebPage WebPage1
       Scope           =   2
       TabIndex        =   8
       Tooltip         =   ""
-      Top             =   344
+      Top             =   428
       Value           =   True
       Visible         =   True
       Width           =   189
@@ -194,7 +193,7 @@ Begin WebPage WebPage1
       StepValue       =   1
       TabIndex        =   9
       Tooltip         =   ""
-      Top             =   384
+      Top             =   468
       Value           =   2500
       Visible         =   True
       Width           =   189
@@ -223,9 +222,9 @@ Begin WebPage WebPage1
       TabIndex        =   10
       Text            =   "Hide after: 2500ms"
       TextAlignment   =   0
-      TextColor       =   &c00000000
+      TextColor       =   &c000000FF
       Tooltip         =   ""
-      Top             =   412
+      Top             =   496
       Underline       =   False
       Visible         =   True
       Width           =   189
@@ -237,6 +236,67 @@ Begin WebPage WebPage1
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   2
+      _mPanelIndex    =   -1
+   End
+   Begin WebPopupMenu IndicatorPopupMenu
+      ControlID       =   ""
+      Enabled         =   True
+      Height          =   38
+      Index           =   -2147483648
+      Indicator       =   0
+      InitialValue    =   "Default\nPrimary\nSecondary\nSuccess\nDanger\nWarning\nInfo\nDark\nLight"
+      LastAddedRowIndex=   0
+      LastRowIndex    =   0
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      RowCount        =   0
+      Scope           =   2
+      SelectedRowIndex=   0
+      SelectedRowText =   ""
+      TabIndex        =   11
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   382
+      Visible         =   True
+      Width           =   189
+      _mPanelIndex    =   -1
+   End
+   Begin WebLabel IndicatorLabel
+      Bold            =   False
+      ControlID       =   ""
+      Enabled         =   True
+      FontName        =   ""
+      FontSize        =   0.0
+      Height          =   38
+      Index           =   -2147483648
+      Indicator       =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   2
+      TabIndex        =   12
+      TabStop         =   True
+      Text            =   "Indicator:"
+      TextAlignment   =   0
+      TextColor       =   &c000000FF
+      Tooltip         =   ""
+      Top             =   344
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
       _mPanelIndex    =   -1
    End
 End
@@ -255,8 +315,9 @@ End
 		  
 		  Var hideAutomatically As Boolean = HideAutomaticallyCheckbox.Value
 		  Var hideAfter As Integer = HideAutomaticallyAfterSlider.Value
+		  Var indicator As WebUIControl.Indicators = WebUIControl.Indicators(IndicatorPopupMenu.SelectedRowIndex)
 		  
-		  Toast.Toast(title, timeAgo, body, hideAutomatically, hideAfter)
+		  Toast.Toast(title, timeAgo, body, hideAutomatically, hideAfter, indicator)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

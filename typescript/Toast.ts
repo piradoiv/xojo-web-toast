@@ -6,6 +6,7 @@ interface ToastCommand {
     auto_hide?: boolean;
     hide_delay?: number;
     index?: number;
+    indicator?: number;
 }
 
 namespace RC {
@@ -21,17 +22,24 @@ namespace RC {
             }
         }
 
-        toast(title: string, timeAgo: string, body: string, autoHide: boolean = true, hideDelay: number = 500) {
+        toast(title: string, timeAgo: string, body: string, autoHide: boolean = true, hideDelay: number = 500, indicator: number = 0) {
             this.createWrapperIfNeeded();
             const element = document.createElement('div');
             this.mToastWrapper?.appendChild(element);
             const toastId = 'bs-toast-' + Date.now();
 
+            const indicators = ['light', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light'];
+            // @ts-ignore
+            if (XojoWeb.session.isDarkModeEnabled) {
+                indicators[0] = 'dark';
+            }
+            const indicatorString = `text-bg-${indicators[indicator]}`;
+
             // The HTML template is coming almost verbatim from Bootstrap's documentation:
             // https://getbootstrap.com/docs/5.3/components/toasts/
             element.outerHTML =
                 `
-                <div id="${toastId}" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+                <div id="${toastId}" class="toast ${indicatorString}" role="alert" aria-live="assertive" aria-atomic="true"
                     data-bs-animation="true" data-bs-autohide="${autoHide}" data-bs-delay="${hideDelay}">
                     <div class="toast-header">
                         <strong class="me-auto">${title}</strong>
@@ -80,7 +88,8 @@ namespace RC {
                         autoHide = command.auto_hide;
                     }
                     const hideDelay = command.hide_delay || 2500;
-                    this.toast(title, timeAgo, body, autoHide, hideDelay);
+                    const indicator = command.indicator || 0;
+                    this.toast(title, timeAgo, body, autoHide, hideDelay, indicator);
                     break;
                 case 'hide-at':
                     command.index && this.hideAt(command.index);
