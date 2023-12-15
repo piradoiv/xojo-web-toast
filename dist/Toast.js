@@ -25,8 +25,8 @@ var RC;
                 indicators[0] = 'dark';
             }
             const indicatorString = `text-bg-${indicators[indicator]}`;
-            element.outerHTML =
-                `
+            if (title !== "" || timeAgo !== "") {
+                element.outerHTML = `
                 <div id="${toastId}" class="toast ${indicatorString}" role="alert" aria-live="assertive" aria-atomic="true"
                     data-bs-animation="true" data-bs-autohide="${autoHide}" data-bs-delay="${hideDelay}">
                     <div class="toast-header">
@@ -35,8 +35,22 @@ var RC;
                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
                     <div class="toast-body">${body}</div>
-                </div>
-                `.trim();
+                </div>`.trim();
+            }
+            else {
+                let closeBtnStyle = 'filter: none';
+                if (['light', 'warning', 'info'].indexOf(indicators[indicator]) === -1) {
+                    closeBtnStyle = '';
+                }
+                element.outerHTML = `
+                <div id="${toastId}" class="toast align-items-center ${indicatorString} border-0" role="alert" aria-live="assertive" aria-atomic="true"
+                    data-bs-animation="true" data-bs-autohide="${autoHide}" data-bs-delay="${hideDelay}">
+                    <div class="d-flex">
+                        <div class="toast-body">${body}</div>
+                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close" style="${closeBtnStyle}"></button>
+                    </div>
+                </div>`.trim();
+            }
             if (!autoHide) {
                 (_b = document.getElementById(toastId)) === null || _b === void 0 ? void 0 : _b.removeAttribute('data-bs-delay');
             }

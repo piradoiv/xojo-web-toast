@@ -37,8 +37,8 @@ namespace RC {
 
             // The HTML template is coming almost verbatim from Bootstrap's documentation:
             // https://getbootstrap.com/docs/5.3/components/toasts/
-            element.outerHTML =
-                `
+            if (title !== "" || timeAgo !== "") {
+                element.outerHTML = `
                 <div id="${toastId}" class="toast ${indicatorString}" role="alert" aria-live="assertive" aria-atomic="true"
                     data-bs-animation="true" data-bs-autohide="${autoHide}" data-bs-delay="${hideDelay}">
                     <div class="toast-header">
@@ -47,8 +47,21 @@ namespace RC {
                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
                     <div class="toast-body">${body}</div>
-                </div>
-                `.trim();
+                </div>`.trim();
+            } else {
+                let closeBtnStyle = 'filter: none';
+                if (['light', 'warning', 'info'].indexOf(indicators[indicator]) === -1) {
+                    closeBtnStyle = '';
+                }
+                element.outerHTML = `
+                <div id="${toastId}" class="toast align-items-center ${indicatorString} border-0" role="alert" aria-live="assertive" aria-atomic="true"
+                    data-bs-animation="true" data-bs-autohide="${autoHide}" data-bs-delay="${hideDelay}">
+                    <div class="d-flex">
+                        <div class="toast-body">${body}</div>
+                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close" style="${closeBtnStyle}"></button>
+                    </div>
+                </div>`.trim();
+            }
 
             if (!autoHide) {
                 document.getElementById(toastId)?.removeAttribute('data-bs-delay');
