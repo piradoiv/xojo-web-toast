@@ -1,8 +1,8 @@
 #tag Class
-Protected Class BootstrapToast
+Protected Class WebToast
 Inherits WebSDKControl
 	#tag Event
-		Function ExecuteEvent(name As string, parameters As JSONItem) As Boolean
+		Function ExecuteEvent(name As String, parameters As JSONItem) As Boolean
 		  // We won't use this event in this example.
 		End Function
 	#tag EndEvent
@@ -126,6 +126,14 @@ Inherits WebSDKControl
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="PanelIndex"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="_mPanelIndex"
 			Visible=false
