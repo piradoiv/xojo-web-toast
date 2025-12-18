@@ -4,6 +4,7 @@ Begin WebPage WebPage1
    Compatibility   =   ""
    ControlCount    =   0
    ControlID       =   ""
+   CSSClasses      =   ""
    Enabled         =   False
    Height          =   700
    ImplicitInstance=   True
@@ -21,6 +22,8 @@ Begin WebPage WebPage1
    LockVertical    =   False
    MinimumHeight   =   400
    MinimumWidth    =   600
+   PanelIndex      =   0
+   ScaleFactor     =   0.0
    TabIndex        =   0
    Title           =   "Untitled"
    Top             =   0
@@ -29,12 +32,14 @@ Begin WebPage WebPage1
    _ImplicitInstance=   False
    _mDesignHeight  =   0
    _mDesignWidth   =   0
+   _mName          =   ""
    _mPanelIndex    =   -1
    Begin WebButton ShowToastButton
       AllowAutoDisable=   False
       Cancel          =   False
       Caption         =   "Toast!"
       ControlID       =   ""
+      CSSClasses      =   ""
       Default         =   True
       Enabled         =   True
       Height          =   38
@@ -48,8 +53,11 @@ Begin WebPage WebPage1
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      Outlined        =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   4
+      TabStop         =   True
       Tooltip         =   ""
       Top             =   558
       Visible         =   True
@@ -61,6 +69,7 @@ Begin WebPage WebPage1
       AllowSpellChecking=   False
       Caption         =   "Title:"
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FieldType       =   0
       Height          =   70
@@ -76,9 +85,11 @@ Begin WebPage WebPage1
       LockTop         =   True
       LockVertical    =   False
       MaximumCharactersAllowed=   0
+      PanelIndex      =   0
       ReadOnly        =   False
       Scope           =   2
       TabIndex        =   5
+      TabStop         =   True
       Text            =   ""
       TextAlignment   =   0
       Tooltip         =   ""
@@ -92,6 +103,7 @@ Begin WebPage WebPage1
       AllowSpellChecking=   False
       Caption         =   "Time ago:"
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FieldType       =   0
       Height          =   70
@@ -107,9 +119,11 @@ Begin WebPage WebPage1
       LockTop         =   True
       LockVertical    =   False
       MaximumCharactersAllowed=   0
+      PanelIndex      =   0
       ReadOnly        =   False
       Scope           =   2
       TabIndex        =   6
+      TabStop         =   True
       Text            =   "42 seconds ago"
       TextAlignment   =   0
       Tooltip         =   ""
@@ -123,6 +137,7 @@ Begin WebPage WebPage1
       AllowSpellChecking=   False
       Caption         =   "Body:"
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       Height          =   160
       Hint            =   ""
@@ -137,9 +152,11 @@ Begin WebPage WebPage1
       LockTop         =   True
       LockVertical    =   False
       MaximumCharactersAllowed=   0
+      PanelIndex      =   0
       ReadOnly        =   False
       Scope           =   2
       TabIndex        =   7
+      TabStop         =   True
       Text            =   ""
       TextAlignment   =   0
       Tooltip         =   ""
@@ -151,6 +168,7 @@ Begin WebPage WebPage1
    Begin WebCheckbox HideAutomaticallyCheckbox
       Caption         =   "Hide automatically"
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       Height          =   34
       Indeterminate   =   False
@@ -164,8 +182,10 @@ Begin WebPage WebPage1
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   8
+      TabStop         =   True
       Tooltip         =   ""
       Top             =   428
       Value           =   True
@@ -175,6 +195,7 @@ Begin WebPage WebPage1
    End
    Begin WebSlider HideAutomaticallyAfterSlider
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       Height          =   20
       Index           =   -2147483648
@@ -189,9 +210,11 @@ Begin WebPage WebPage1
       LockVertical    =   False
       MaximumValue    =   5000
       MinimumValue    =   100
+      PanelIndex      =   0
       Scope           =   2
       StepValue       =   1
       TabIndex        =   9
+      TabStop         =   True
       Tooltip         =   ""
       Top             =   468
       Value           =   2500
@@ -202,6 +225,7 @@ Begin WebPage WebPage1
    Begin WebLabel HideAutomaticallyAfterLabel
       Bold            =   False
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
       FontSize        =   0.0
@@ -218,8 +242,10 @@ Begin WebPage WebPage1
       LockTop         =   True
       LockVertical    =   False
       Multiline       =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   10
+      TabStop         =   True
       Text            =   "Hide after: 2500ms"
       TextAlignment   =   0
       TextColor       =   &c000000FF
@@ -230,16 +256,24 @@ Begin WebPage WebPage1
       Width           =   189
       _mPanelIndex    =   -1
    End
-   Begin BootstrapToast Toast
+   Begin WebToast Toast
       ControlID       =   ""
       Enabled         =   True
+      Height          =   32
       Index           =   -2147483648
+      Left            =   0
       LockedInPosition=   False
       Scope           =   2
+      TabIndex        =   11
+      TabStop         =   True
+      Top             =   0
+      Visible         =   True
+      Width           =   32
       _mPanelIndex    =   -1
    End
    Begin WebPopupMenu IndicatorPopupMenu
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       Height          =   38
       Index           =   -2147483648
@@ -255,6 +289,7 @@ Begin WebPage WebPage1
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      PanelIndex      =   0
       RowCount        =   0
       Scope           =   2
       SelectedRowIndex=   0
@@ -270,6 +305,7 @@ Begin WebPage WebPage1
    Begin WebLabel IndicatorLabel
       Bold            =   False
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
       FontSize        =   0.0
@@ -286,6 +322,7 @@ Begin WebPage WebPage1
       LockTop         =   True
       LockVertical    =   False
       Multiline       =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   12
       TabStop         =   True
@@ -337,6 +374,22 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="PanelIndex"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ScaleFactor"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Double"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="ControlCount"
 		Visible=false
